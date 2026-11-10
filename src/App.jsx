@@ -6,7 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CenterPortal from "./pages/CenterPortal/CenterPortal";
 import Onwer from "./pages/Onwer/Onwer";
-import PlatformAdministration from "./pages/platformadministration/PlatformAdministration";
+import PlatformAdministration from "./pages/platformAdministration/PlatformAdministration";
 
 export default function App() {
   return (
