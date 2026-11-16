@@ -1,35 +1,30 @@
-
 import { Link } from "react-router-dom";
-import { Button } from "@heroui/react";
-
 export default function NotFound() {
   return (
     <div
       dir="rtl"
-      className="flex min-h-screen items-center justify-center bg-[#0F172A] px-5 text-white"
+      className="min-h-screen bg-slate-950 flex items-center justify-center px-4"
     >
-      <div className="max-w-lg text-center">
-
-        <h1 className="mb-4 text-8xl font-black text-blue-500">
+      <div className="text-center max-w-lg">
+        <h1 className="text-8xl md:text-9xl font-extrabold text-blue-500 mb-4">
           404
         </h1>
-
-        <h2 className="mb-4 text-3xl font-bold">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           الصفحة غير موجودة!
         </h2>
-
-        <p className="mb-8 text-gray-400">
-          عذراً، الصفحة التي تبحث عنها غير موجودة.
+        <p className="text-slate-400 text-lg leading-relaxed mb-8">
+          عذراً، الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها.
+          تأكد من الرابط وحاول مرة أخرى.
         </p>
-
-        <Button
-          as={Link}
+        <Link
           to="/"
-          className="rounded-xl bg-blue-600 px-8 font-bold text-white"
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-xl
+          bg-blue-600 hover:bg-blue-700 text-white font-bold
+          transition-all duration-300 shadow-lg shadow-blue-600/20"
         >
-          العودة للصفحة الرئيسية ←
-        </Button>
-
+          العودة للصفحة الرئيسية
+          <span>←</span>
+        </Link>
       </div>
     </div>
   );

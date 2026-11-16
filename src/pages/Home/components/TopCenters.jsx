@@ -1,92 +1,66 @@
-import { Card, Button } from "@heroui/react";
-
 const centers = [
   {
     name: "AutoFix Center",
     type: "صيانة ميكانيكية",
     rating: "4.9",
     price: "يبدأ من 300 ج.م",
+    icon: "🔧",
   },
   {
     name: "Premium Car Care",
     type: "غسيل وتلميع",
     rating: "4.8",
     price: "يبدأ من 200 ج.م",
+    icon: "🚘",
   },
   {
     name: "Speed Service",
     type: "صيانة وإطارات",
     rating: "4.7",
     price: "يبدأ من 250 ج.م",
+    icon: "🛞",
   },
 ];
-
 export default function TopCenters() {
   return (
-    <section
-      id="centers-sec"
-      dir="rtl"
-      className="bg-[#0F172A] text-white px-5 py-20"
-    >
-
-      <div className="max-w-[1180px] mx-auto">
-
-        <h2 className="text-3xl md:text-4xl font-black mb-3">
+    <section dir="rtl" className="bg-[#0F172A] px-5 py-20 text-[#F0F9FF]">
+      <div className="mx-auto max-w-[1180px]">
+        <h2 className="mb-2 text-3xl font-black md:text-[44px]">
           أعلى مراكز الصيانة تقييمًا
         </h2>
-
-        <p className="text-gray-400 mb-9">
+        <p className="mb-9 max-w-[540px] text-[15px] text-[#94A3B8]">
           مراكز موثقة ومجربة من أصحاب السيارات بأسعار دقيقة ومواعيد مؤكدة.
         </p>
-
         <div className="grid gap-6 md:grid-cols-3">
-
           {centers.map((center) => (
-
-            <Card
+            <div
               key={center.name}
-              className="bg-[#142037] border border-[#243C63] text-white hover:border-sky-400 transition"
+              className="overflow-hidden rounded-[18px] border border-[#243C63] bg-[#142037] transition hover:-translate-y-1 hover:border-[#38BDF8] hover:shadow-[0_10px_30px_rgba(56,189,248,0.15)]"
             >
-
-              <Card.Content className="p-6">
-
-                <div className="h-40 bg-blue-900/30 rounded-xl flex items-center justify-center mb-5">
-                  <div className="w-16 h-16 rounded-xl border border-cyan-400/30 bg-cyan-400/10"></div>
-                </div>
-
-                <div className="flex justify-between items-center gap-2 mb-4">
-
-                  <span className="text-cyan-400 text-sm">
+              <div className="flex h-48 items-center justify-center bg-gradient-to-br from-[#1D4ED8]/30 to-[#38BDF8]/10">
+                <span className="text-7xl">{center.icon}</span>
+              </div>
+              <div className="p-6">
+                <div className="mb-4 flex items-center justify-between gap-2">
+                  <span className="rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/10 px-3 py-1 text-xs font-bold text-[#38BDF8]">
                     {center.type}
                   </span>
-
-                  <span className="text-yellow-400">
-                    ★ {center.rating}
+                  <span className="font-bold text-yellow-400">
+                    ⭐ {center.rating}
                   </span>
-
                 </div>
-
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="mb-3 text-xl font-extrabold">
                   {center.name}
                 </h3>
-
-                <p className="text-gray-400 text-sm mb-5">
+                <p className="mb-5 text-sm text-[#94A3B8]">
                   {center.price}
                 </p>
-
-                <Button
-                  className="w-full bg-blue-600 text-white"
-                  onPress={() => alert("تفاصيل المركز قريبًا")}
-                >
+                <button className="w-full rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#1D4ED8] py-3 font-extrabold text-white transition hover:brightness-110">
                   عرض التفاصيل
-                </Button>
-
-              </Card.Content>
-
-            </Card>
-
+                </button>
+              </div>
+            </div>
           ))}
-
         </div>
       </div>
     </section>
