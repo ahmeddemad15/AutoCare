@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap');
+
+.center-theme {
+  --cp-bg: #0F172A;
+  --cp-header: rgba(15, 23, 42, 0.92);
+  --cp-surface: #142037;
+  --cp-surface-2: #1e2f4d;
+  --cp-line: #243c63;
+  --cp-text: #F0F9FF;
+  --cp-muted: #94A3B8;
+  --cp-accent: #38BDF8;
+  --cp-blue: #1D4ED8;
+  --cp-cyan: #22D3EE;
+
+  font-family: Cairo, Tajawal, system-ui, sans-serif;
+}
+
+.center-theme[data-theme="light"] {
+  --cp-bg: #F0F9FF;
+  --cp-header: rgba(255, 255, 255, 0.92);
+  --cp-surface: #FFFFFF;
+  --cp-surface-2: #E0F2FE;
+  --cp-line: #BAE6FD;
+  --cp-text: #0F172A;
+  --cp-muted: #475569;
+  --cp-accent: #0284C7;
+  --cp-blue: #1D4ED8;
+  --cp-cyan: #0891B2;
+}
+
+.center-theme .cp-logo {
+  font-family: Tajawal, Cairo, sans-serif;
+}

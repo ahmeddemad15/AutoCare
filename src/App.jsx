@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -10,16 +10,20 @@ import PlatformAdministration from "./pages/platformAdministration/PlatformAdmin
 import Navbar from "./components/Navbar";
 
 export default function App() {
+  const location = useLocation();
+
+  const isCenterPortal = location.pathname.startsWith("/center-portal");
+
   return (
     <div className="min-h-screen">
-      <Navbar />
-
+      {!isCenterPortal && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/center-portal" element={<CenterPortal />} />
+
+          <Route path="/center-portal/*" element={<CenterPortal />}/>
           <Route path="/Owner/*" element={<Owner/>}/>
           <Route
             path="/platform-administration"
