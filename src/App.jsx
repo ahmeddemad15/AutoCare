@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Owner from "./pages/Onwer/Owner";
+import Owner from "./pages/Owner/Owner";
 import CenterPortal from "./pages/CenterPortal/CenterPortal";
 import PlatformAdministration from "./pages/platformAdministration/PlatformAdministration";
 

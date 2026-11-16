@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,12 +9,12 @@ const Navbar = () => {
     { name: "Services", to: "services" },
     { name: "About Us", to: "about" },
     { name: "Contact", to: "contact" },
+    { name: "Owner", to: "/Owner" },
   ];
 
   return (
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <span className="font-bold text-2xl tracking-tight text-gray-900">
@@ -67,7 +66,6 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-5 space-y-4">
-
           {navLinks.map((link) => (
             <Link
               key={link.name}
