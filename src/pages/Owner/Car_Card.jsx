@@ -23,7 +23,6 @@ const DECO = {
   ),
 };
 
-/* One card. The parent decides WHICH cards to show and passes each one in. */
 const Car_Card = ({ item, onBook }) => {
   const {
     name,
@@ -43,7 +42,7 @@ const Car_Card = ({ item, onBook }) => {
         className={`cb-hero cb-hero--${icon} relative flex h-[255px] items-end justify-center`}
       >
         <svg
-          className="absolute end-[22px] top-[18px] h-[72px] w-[72px]"
+          className="absolute inset-e-5.5 top-[18px] h-[72px] w-[72px]"
           viewBox="0 0 72 72"
         >
           {DECO[icon]}
@@ -90,8 +89,8 @@ const Car_Card = ({ item, onBook }) => {
       </div>
 
       {/* body */}
-      <div className="flex flex-1 flex-col gap-3 px-[26px] pb-[26px] pt-9">
-        <h3 className="text-[21px] font-bold leading-[1.3]">{name}</h3>
+      <div className="flex flex-1 flex-col gap-3 px-6.5 pb-[26px] pt-9">
+        <h3 className=" text-[21px] font-bold leading-[1.3]">{name}</h3>
 
         <div className="flex flex-wrap items-center gap-2 text-sm">
           <span className="font-num font-bold text-[#38BDF8]">★ {rating}</span>
@@ -115,7 +114,7 @@ const Car_Card = ({ item, onBook }) => {
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between gap-3 border-t border-[#243c63] pt-[18px]">
+        <div className="mt-auto flex items-center justify-between gap-3 border-t border-[#243c63] pt-4.5">
           <span className="font-num text-lg font-semibold">
             From{" "}
             <span className="font-bold text-[#38BDF8]">
@@ -126,7 +125,7 @@ const Car_Card = ({ item, onBook }) => {
           <button
             type="button"
             onClick={() => onBook(item)}
-            className="font-num cursor-pointer rounded-[10px] bg-gradient-to-br from-[#38BDF8] to-[#1D4ED8] px-[22px] py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-700/30 transition hover:-translate-y-px hover:brightness-110 active:translate-y-0"
+            className="font-num cursor-pointer rounded-[10px] bg-linear-to-br from-[#38BDF8] to-[#1D4ED8] px-5.5 py-3 text-sm font-extrabold text-white shadow-lg shadow-blue-700/30 transition hover:-translate-y-px hover:brightness-110 active:translate-y-0"
           >
             Book Now
           </button>
