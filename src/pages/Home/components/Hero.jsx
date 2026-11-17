@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Hero({ onOpenApp, onBrowseCenters }) {
   return (
     <section dir="rtl" className="relative flex min-h-[580px] items-center overflow-hidden bg-[#0F172A]">      
@@ -22,12 +23,12 @@ export default function Hero({ onOpenApp, onBrowseCenters }) {
             سيراميك بضغطة زر واحدة.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button
-              onClick={onOpenApp}
-              className="rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#1D4ED8] px-7 py-3 font-extrabold text-white shadow-[0_4px_14px_rgba(29,78,216,0.3)] transition hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_6px_20px_rgba(56,189,248,0.4)]"
-            >
-              افتح كراج سياراتك
-            </button>
+            <Link
+  to="/login"
+  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+>
+  افتح كراج سياراتك
+</Link>
             <button
               onClick={onBrowseCenters}
               className="rounded-lg border border-[#38BDF8] px-7 py-3 font-extrabold text-[#38BDF8] transition hover:bg-[#38BDF8]/10 hover:text-white"
@@ -40,7 +41,7 @@ export default function Hero({ onOpenApp, onBrowseCenters }) {
       <div className="pointer-events-none absolute left-[5%] top-1/2 hidden -translate-y-1/2 lg:block">
         <div className="flex h-[390px] w-[390px] items-center justify-center rounded-full border border-[#38BDF8]/20 bg-[#38BDF8]/5 shadow-[0_0_100px_rgba(56,189,248,0.12)]">
           <div className="flex h-[290px] w-[290px] items-center justify-center rounded-full border border-[#22D3EE]/20">
-            <span className="text-[140px]">🚘</span>
+            
           </div>
         </div>
       </div>

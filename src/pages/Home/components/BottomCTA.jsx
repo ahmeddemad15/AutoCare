@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function BottomCTA({ onOpenApp }) {
   return (
     <section dir="rtl" className="bg-[#0F172A] px-5 py-20">
@@ -8,12 +9,12 @@ export default function BottomCTA({ onOpenApp }) {
         <p className="mb-8 text-base opacity-95">
           أضف سيارتك الأولى الآن واستمتع بتجربة صيانة سهلة ومريحة.
         </p>
-        <button
-          onClick={onOpenApp}
-          className="rounded-lg bg-[#0F172A] px-8 py-3 font-extrabold text-[#38BDF8] transition hover:-translate-y-1 hover:bg-[#080D1A]"
-        >
-          ابدأ مجانًا الآن
-        </button>
+        <Link
+  to="/login"
+  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+>
+ ابدا الان
+</Link>
       </div>
     </section>
   );

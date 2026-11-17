@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const features = [
   {
     icon: "⏱",
@@ -44,12 +45,12 @@ export default function GaragePreview({ onOpenApp }) {
               </div>
             ))}
           </div>
-          <button
-            onClick={onOpenApp}
-            className="mt-8 rounded-lg bg-gradient-to-r from-[#38BDF8] to-[#1D4ED8] px-7 py-3 font-extrabold text-white shadow-lg transition hover:-translate-y-1 hover:brightness-110"
-          >
-            جرب كراج المالك الآن
-          </button>
+          <Link
+  to="/login"
+  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition"
+>
+  افتح كراج سياراتك
+</Link>
         </div>
         <div className="rounded-[35px] border-[8px] border-[#080D1A] bg-[#142037] p-5 shadow-[0_35px_80px_rgba(56,189,248,0.2)]">
           <div className="mb-5 flex items-center justify-between text-sm font-bold text-[#94A3B8]">
