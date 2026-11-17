@@ -66,7 +66,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                 }
               >
                 <span aria-hidden="true">{item.icon}</span>
-                {item.label}
+                <span>{item.label}</span>
               </NavLink>
             </li>
           ))}
@@ -80,7 +80,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold text-red-400 transition hover:bg-red-500/10"
           >
             <span aria-hidden="true">🚪</span>
-            Logout
+            <span>Logout</span>
           </button>
         </div>
       </aside>

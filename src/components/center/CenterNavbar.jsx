@@ -24,6 +24,7 @@ const CenterNavbar = ({
           className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-(--cp-line) bg-(--cp-surface) text-(--cp-text) transition hover:border-(--cp-accent)"
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
             fill="none"
@@ -68,6 +69,7 @@ const CenterNavbar = ({
           className="relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-(--cp-line) bg-(--cp-surface) text-(--cp-text) transition hover:border-(--cp-accent)"
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             fill="none"
