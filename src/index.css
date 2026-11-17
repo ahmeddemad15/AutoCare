@@ -2,3 +2,61 @@
 @import "@heroui/styles";
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap");
 @plugin "daisyui";
+
+/* =========================================================
+   Centers & Booking: styles Tailwind can't express cleanly
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Exo+2:wght@500;600;700&display=swap");
+
+/* ---------- fonts ---------- */
+.cb-root {
+  font-family: "Cairo", "Exo 2", system-ui, sans-serif;
+}
+.cb-root .font-num {
+  font-family: "Exo 2", "Cairo", system-ui, sans-serif;
+}
+
+/* ---------- car card hero: sky + hard-edged ground band ---------- */
+.cb-hero {
+  --sky-top: #1e5a80;
+  --sky-bottom: #2f9ad0;
+  --ground: #1c5f80;
+  background: linear-gradient(
+    180deg,
+    var(--sky-top) 0%,
+    var(--sky-bottom) 74%,
+    var(--ground) 74%,
+    var(--ground) 100%
+  );
+}
+.cb-hero--snowflake {
+  --sky-top: #101c5c;
+  --sky-bottom: #1e40af;
+  --ground: #0f1f6e;
+}
+
+/* ---------- 📍 before the area name ---------- */
+.cb-area::before {
+  content: "📍";
+  font-style: normal;
+  margin-inline-end: 4px;
+}
+
+/* ---------- custom dropdown arrow ---------- */
+.cb-select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+}
+[dir="rtl"] .cb-select {
+  background-position: left 18px center;
+}
+.cb-select option {
+  background: #142037;
+  color: #f0f9ff;
+}
+
+/* ---------- booking modal summary gradient ---------- */
+.cb-summary {
+  background: linear-gradient(160deg, #1b2c52 0%, #142037 65%);
+}

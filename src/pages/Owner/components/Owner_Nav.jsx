@@ -10,7 +10,7 @@ const TABS = [
   { path: "Financial_Log", label: "Financial Log", icon: "📊" },
 ];
 
-const Owner_Nav = ({ basePath = "" }) => {
+const Owner_Nav = () => {
   return (
     <nav
       aria-label="Garage sections"
