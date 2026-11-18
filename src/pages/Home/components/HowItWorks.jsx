@@ -20,7 +20,7 @@ const steps = [
 ];
 export default function HowItWorks() {
   return (
-    <section dir="rtl" className="bg-[#0F172A] px-5 py-20 text-[#F0F9FF]">
+    <section id="how" dir="rtl" className="scroll-mt-20 bg-[#0F172A] px-5 py-20 text-[#F0F9FF]">
       <div className="mx-auto max-w-[1180px]">
 
         <h2 className="mb-2 text-3xl font-black md:text-[44px]">

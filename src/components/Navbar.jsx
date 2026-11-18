@@ -19,14 +19,14 @@ export default function Navbar() {
           <Link to="/#how">كيف يعمل</Link>
           <Link to="/#services">الخدمات</Link>
           <Link to="/#centers-sec">المراكز</Link>
-          <Link to="/garage">التطبيق والعداد</Link>
-          <Link to="/#join" className="text-cyan-400">
+          <Link to="/Owner">التطبيق والعداد</Link>
+          <Link to="/register" className="text-cyan-400">
             انضم كمركز صيانة
           </Link>
         </nav>
 
         <Button
-          onPress={() => navigate("/garage")}
+          onPress={() => navigate("/Owner")}
           className="hidden bg-blue-600 text-white lg:flex"
         >
           فتح الكراج
@@ -45,9 +45,9 @@ export default function Navbar() {
           <Link to="/#how" onClick={closeMenu}>كيف يعمل</Link>
           <Link to="/#services" onClick={closeMenu}>الخدمات</Link>
           <Link to="/#centers-sec" onClick={closeMenu}>المراكز</Link>
-          <Link to="/garage" onClick={closeMenu}>التطبيق والعداد</Link>
+          <Link to="/Owner" onClick={closeMenu}>التطبيق والعداد</Link>
           <Button
-            onPress={() => { closeMenu(); navigate("/garage"); }}
+            onPress={() => { closeMenu(); navigate("/Owner"); }}
             className="bg-blue-600 text-white"
           >
             فتح الكراج

@@ -23,7 +23,7 @@ const centers = [
 ];
 export default function TopCenters() {
   return (
-    <section dir="rtl" className="bg-[#0F172A] px-5 py-20 text-[#F0F9FF]">
+    <section id="centers-sec" dir="rtl" className="scroll-mt-20 bg-[#0F172A] px-5 py-20 text-[#F0F9FF]">
       <div className="mx-auto max-w-[1180px]">
         <h2 className="mb-2 text-3xl font-black md:text-[44px]">
           أعلى مراكز الصيانة تقييمًا
