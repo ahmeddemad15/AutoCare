@@ -7,26 +7,22 @@ import Owner from "./pages/Owner/Owner";
 import CenterPortal from "./pages/CenterPortal/CenterPortal";
 import PlatformAdministration from "./pages/platformAdministration/PlatformAdministration";
 
-import Navbar from "./components/Navbar";
+import Layout from "./components/layout/Layout";
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/center-portal" element={<CenterPortal />} />
-          <Route path="/Owner/*" element={<Owner />} />
-          <Route
-            path="/platform-administration"
-            element={<PlatformAdministration />}
-          />
-        </Routes>
-      </main>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/center-portal" element={<CenterPortal />} />
+        <Route path="/Owner/*" element={<Owner />} />
+        <Route
+          path="/platform-administration"
+          element={<PlatformAdministration />}
+        />
+      </Route>
+    </Routes>
   );
 }
