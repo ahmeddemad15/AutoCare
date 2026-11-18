@@ -1,13 +1,13 @@
 
 import { useNavigate } from "react-router-dom";
 
-import Hero from "../pages/Home/components/Hero";
-import Stats from "../pages/Home/components/Stats";
-import HowItWorks from "../pages/Home/components/HowItWorks";
-import Services from "../pages/Home/components/Services";
-import TopCenters from "../pages/Home/components/TopCenters";
-import GaragePreview from "../pages/Home/components/GaragePreview";
-import BottomCTA from "../pages/Home/components/BottomCTA";
+import Hero from "./components/Hero";
+import Stats from "./components/Stats";
+import HowItWorks from "./components/HowItWorks";
+import Services from "./components/Services";
+import TopCenters from "./components/TopCenters";
+import GaragePreview from "./components/GaragePreview";
+import BottomCTA from "./components/BottomCTA";
 
 
 export default function Home() {
