@@ -55,6 +55,18 @@ const useCenterData = () => {
     updateBooking(id, { status: "Rejected", rejectReason: reason });
   const completeBooking = (id, invoice) =>
     updateBooking(id, { status: "Completed", invoice });
+  const updateCenterInfo = async (changes) => {
+    setActionError(null);
+    try {
+      const updated = await api.updateCenterInfo(changes);
+      setCenterInfo(updated);
+      return true;
+    } catch (err) {
+      setActionError(err.message);
+      return false;
+    }
+  };
+
   return {
     centerInfo,
     bookings,
@@ -67,6 +79,8 @@ const useCenterData = () => {
     confirmBooking,
     rejectBooking,
     completeBooking,
+    updateCenterInfo,
   };
 };
+
 export default useCenterData;

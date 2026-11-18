@@ -5,6 +5,10 @@ export const CENTER_INFO = {
   branch: "New Cairo Branch",
   hours: "09:00 AM - 10:00 PM",
   phone: "01023456789",
+  email: "info@speedauto.example",
+  address: "90th Street, New Cairo, Cairo",
+  description:
+    "Full-service car maintenance: oil change, diagnostics, brakes and AC.",
 };
 
 export const BOOKINGS = [

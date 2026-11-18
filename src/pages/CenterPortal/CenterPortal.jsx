@@ -5,9 +5,10 @@ import CenterNavbar from "../../components/center/CenterNavbar";
 import Sidebar from "../../components/center/Sidebar";
 import DashboardHome from "./DashboardHome";
 import BookingsPage from "./BookingsPage";
+import ProfilePage from "./ProfilePage";
 import CenterPlaceholder from "./CenterPlaceholder";
 import useCenterData from "./useCenterData";
-import "./centerTheme.css";
+import "./centertheme.css";
 
 const PAGE_TITLES = {
   "/center-portal": "Center Dashboard",
@@ -34,6 +35,7 @@ const CenterPortal = () => {
     confirmBooking,
     rejectBooking,
     completeBooking,
+    updateCenterInfo,
   } = useCenterData();
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
@@ -93,7 +95,12 @@ const CenterPortal = () => {
         />
         <Route
           path="profile"
-          element={<CenterPlaceholder title="My Profile" />}
+          element={
+            <ProfilePage
+              centerInfo={centerInfo}
+              updateCenterInfo={updateCenterInfo}
+            />
+          }
         />
         <Route
           path="settings"
@@ -114,6 +121,7 @@ const CenterPortal = () => {
         title={title}
         theme={theme}
         toggleTheme={toggleTheme}
+        centerName={centerInfo?.name}
       />
 
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />

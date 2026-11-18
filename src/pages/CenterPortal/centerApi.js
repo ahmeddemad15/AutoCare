@@ -17,15 +17,24 @@ const FAIL_LOADING = false; // set to true to test the error screen
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // In-memory "database": lives until the page is refreshed
+let centerInfoDb = { ...CENTER_INFO };
 const bookingsDb = BOOKINGS.map((booking) => ({ ...booking }));
 
 export async function getCenterInfo() {
   await wait(FAKE_DELAY_MS);
   if (FAIL_LOADING)
     throw new Error("Could not load center data. Please try again.");
-  return { ...CENTER_INFO };
+  return { ...centerInfoDb };
 }
-
+export async function updateCenterInfo(changes) {
+  await wait(FAKE_DELAY_MS / 2);
+  // The real server would validate too, never trust the browser only
+  if (!changes.name || changes.name.trim() === "") {
+    throw new Error("Center name is required.");
+  }
+  centerInfoDb = { ...centerInfoDb, ...changes };
+  return { ...centerInfoDb };
+}
 export async function getBookings() {
   await wait(FAKE_DELAY_MS);
   return bookingsDb.map((booking) => ({ ...booking }));
