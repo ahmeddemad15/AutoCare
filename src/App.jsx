@@ -6,6 +6,7 @@ import Register from "./pages/Register/Register";
 import Owner from "./pages/Owner/Owner";
 import CenterPortal from "./pages/CenterPortal/CenterPortal";
 import PlatformAdministration from "./pages/platformAdministration/PlatformAdministration";
+import NotFound from "./pages/Notfound";
 
 import Layout from "./components/layout/Layout";
 import AuthLayout from "./components/layout/AuthLayout";
@@ -33,6 +34,8 @@ export default function App() {
           <Route path="/platform-administration" element={<PlatformAdministration />} />
         </Route>
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

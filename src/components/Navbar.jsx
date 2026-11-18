@@ -1,103 +1,59 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@heroui/react";
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar() {
+  const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
 
-  const navLinks = [
-    { name: "Home", to: "/" },
-    { name: "Services", to: "services" },
-    { name: "About Us", to: "about" },
-    { name: "Contact", to: "contact" },
-    { name: "Owner", to: "/Owner" },
-  ];
+  const closeMenu = () => setMenu(false);
 
   return (
-    <header className="w-full bg-white shadow-sm sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <span className="font-bold text-2xl tracking-tight text-gray-900">
-            AUTO<span className="text-blue-700">CARE</span>
-          </span>
+    <header className="sticky top-0 z-50 border-b border-[#243C63] bg-[#0F172A] text-white">
+      <div className="mx-auto flex max-w-[1180px] items-center justify-between px-5 py-4">
+        <Link to="/" className="text-2xl font-black">
+          AUTO<span className="text-cyan-400">CARE</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.to}
-              className="text-gray-600 font-medium hover:text-blue-700 transition-colors duration-200"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link
-            to="/login"
-            className="px-5 py-2.5 text-blue-700 font-semibold border border-blue-700 rounded-lg hover:bg-blue-50 transition duration-200"
-          >
-            Log In
+        <nav className="hidden items-center gap-6 lg:flex">
+          <Link to="/#how">كيف يعمل</Link>
+          <Link to="/#services">الخدمات</Link>
+          <Link to="/#centers-sec">المراكز</Link>
+          <Link to="/garage">التطبيق والعداد</Link>
+          <Link to="/#join" className="text-cyan-400">
+            انضم كمركز صيانة
           </Link>
+        </nav>
 
-          <Link
-            to="/register"
-            className="px-5 py-2.5 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition duration-200"
-          >
-            Get Started
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-gray-800 text-2xl focus:outline-none"
-          aria-label="Toggle navigation menu"
-          aria-expanded={isMenuOpen}
+        <Button
+          onPress={() => navigate("/garage")}
+          className="hidden bg-blue-600 text-white lg:flex"
         >
-          {isMenuOpen ? "✕" : "☰"}
+          فتح الكراج
+        </Button>
+
+        <button
+          onClick={() => setMenu(!menu)}
+          className="text-2xl text-cyan-400 lg:hidden"
+        >
+          ☰
         </button>
-      </nav>
+      </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-5 space-y-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.to}
-              onClick={() => setIsMenuOpen(false)}
-              className="block text-gray-700 font-medium hover:text-blue-700 transition"
-            >
-              {link.name}
-            </Link>
-          ))}
-
-          <div className="flex flex-col gap-3 pt-3">
-            <Link
-              to="/login"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-center w-full py-2.5 border border-blue-700 text-blue-700 rounded-lg font-semibold"
-            >
-              Log In
-            </Link>
-
-            <Link
-              to="/register"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-center w-full py-2.5 bg-blue-700 text-white rounded-lg font-semibold"
-            >
-              Get Started
-            </Link>
-          </div>
+      {menu && (
+        <div className="flex flex-col gap-5 bg-[#142037] p-5 lg:hidden">
+          <Link to="/#how" onClick={closeMenu}>كيف يعمل</Link>
+          <Link to="/#services" onClick={closeMenu}>الخدمات</Link>
+          <Link to="/#centers-sec" onClick={closeMenu}>المراكز</Link>
+          <Link to="/garage" onClick={closeMenu}>التطبيق والعداد</Link>
+          <Button
+            onPress={() => { closeMenu(); navigate("/garage"); }}
+            className="bg-blue-600 text-white"
+          >
+            فتح الكراج
+          </Button>
         </div>
       )}
     </header>
   );
-};
-
-export default Navbar;
+}
