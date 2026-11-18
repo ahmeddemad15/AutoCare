@@ -32,7 +32,7 @@ const services = [
 ];
 export default function Services() {
   return (
-    <section dir="rtl" className="bg-[#142037] px-5 py-20 text-[#F0F9FF]">
+    <section id="services" dir="rtl" className="scroll-mt-20 bg-[#142037] px-5 py-20 text-[#F0F9FF]">
       <div className="mx-auto max-w-[1180px]">
         <h2 className="mb-2 text-3xl font-black md:text-[44px]">
           كل ما تحتاجه سيارتك
