@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/Authentication/useAuth";
+import { validateEmail, validatePassword } from "../../context/Authentication/authValidation";
 
 export default function Register() {
+  const { register } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,12 +27,12 @@ export default function Register() {
       setError("كلمتا المرور غير متطابقتين");
       return;
     }
-    if (formData.password.length < 8) {
-      setError("كلمة المرور يجب أن تكون 8 أحرف على الأقل");
+    const message = validateEmail(formData.email) || validatePassword(formData.password);
+    if (message) {
+      setError(message);
       return;
     }
-    console.log("Register Data:", formData);
-    // Connect with backend registration here
+    register(formData);
   };
 
   return (

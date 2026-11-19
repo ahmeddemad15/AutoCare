@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <div>
       <Hero
         onOpenApp={handleOpenApp}
         onBrowseCenters={handleBrowseCenters}
@@ -49,6 +49,6 @@ export default function Home() {
       <GaragePreview onOpenApp={handleOpenApp} />
 
       <BottomCTA onOpenApp={handleOpenApp} />
-    </main>
+    </div>
   );
 }
