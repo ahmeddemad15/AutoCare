@@ -1,23 +1,18 @@
+import getInitials from "../../pages/CenterPortal/components/getInitials";
 
-// Dummy data: static values for the frontend only (NOT from a backend)
-const DUMMY_CENTER = {
-  name: 'Speed Auto Center',
-  role: 'Center Admin',
-  initials: 'SA',
-}
+const CENTER_ROLE = "Center Admin";
 
 const CenterNavbar = ({
   toggleSidebar,
-  title = 'Center Dashboard',
-  theme = 'dark',
+  title = "Center Dashboard",
+  theme = "dark",
   toggleTheme,
+  centerName = "Your Center",
 }) => {
   return (
     <nav className="sticky top-0 z-50 flex h-16 w-full items-center justify-between gap-3 border-b border-(--cp-line) bg-(--cp-header) px-4 backdrop-blur-md sm:px-6 lg:px-8">
-
       {/* Left side: hamburger + logo + page title */}
       <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-
         <button
           onClick={toggleSidebar}
           aria-label="Toggle sidebar"
@@ -32,7 +27,11 @@ const CenterNavbar = ({
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
 
@@ -45,23 +44,23 @@ const CenterNavbar = ({
 
         {/* Page title + welcome message */}
         <div className="min-w-0">
-          <h1 className="truncate text-base font-extrabold sm:text-lg">{title}</h1>
+          <h1 className="truncate text-base font-extrabold sm:text-lg">
+            {title}
+          </h1>
           <p className="hidden text-sm text-(--cp-muted) lg:block">
-            Welcome back, {DUMMY_CENTER.name}
+            Welcome back, {centerName}
           </p>
         </div>
-
       </div>
 
       {/* Right side: theme + notifications + divider + profile */}
       <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-
         <button
           onClick={toggleTheme}
           aria-label="Toggle light and dark theme"
           className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-(--cp-line) bg-(--cp-surface) text-lg transition hover:border-(--cp-accent)"
         >
-          {theme === 'dark' ? '☀️' : '🌙'}
+          {theme === "dark" ? "☀️" : "🌙"}
         </button>
 
         <button
@@ -91,17 +90,16 @@ const CenterNavbar = ({
         {/* Center profile */}
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-(--cp-accent) to-(--cp-blue) text-sm font-extrabold text-white">
-            {DUMMY_CENTER.initials}
+            {getInitials(centerName)}
           </div>
 
           <div className="hidden leading-tight md:block">
-            <p className="text-sm font-bold">{DUMMY_CENTER.name}</p>
-            <p className="text-xs text-(--cp-muted)">{DUMMY_CENTER.role}</p>
+            <p className="text-sm font-bold">{centerName}</p>
+            <p className="text-xs text-(--cp-muted)">{CENTER_ROLE}</p>
           </div>
         </div>
-
       </div>
     </nav>
-  )
-}
-export default CenterNavbar
+  );
+};
+export default CenterNavbar;
