@@ -2,19 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 
-const STORAGE_KEY = "autocare_user";
+// Never store what the user typed here (SonarCloud flags it); store the backend's token instead later.
+const REMEMBER_KEY = "autocare_remembered";
 
-function readSavedUser() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY));
-  } catch {
-    return null;
-  }
+function readRememberedUser() {
+  return localStorage.getItem(REMEMBER_KEY) === "true" ? { remembered: true } : null;
 }
 
 export default function AuthProvider({ children }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState(readSavedUser);
+  const [user, setUser] = useState(readRememberedUser);
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -26,9 +23,9 @@ export default function AuthProvider({ children }) {
   function login(userData, remember) {
     setUser(userData);
     if (remember) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+      localStorage.setItem(REMEMBER_KEY, "true");
     } else {
-      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(REMEMBER_KEY);
     }
     setPassword("");
     navigate("/Owner");
@@ -41,7 +38,7 @@ export default function AuthProvider({ children }) {
 
   function logout() {
     setUser(null);
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(REMEMBER_KEY);
     navigate("/login");
   }
 
