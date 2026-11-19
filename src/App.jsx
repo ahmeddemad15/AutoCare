@@ -1,32 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import Owner from "./pages/Owner/Owner";
-import CenterPortal from "./pages/CenterPortal/CenterPortal";
-import PlatformAdministration from "./pages/platformAdministration/PlatformAdministration";
-
-import Navbar from "./components/Navbar";
+import AuthProvider from "./context/Authentication/AuthProvider";
+import UserLayout from "./layouts/UserLayout";
+import AdminLayout from "./layouts/AdminLayout";
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/center-portal/*" element={<CenterPortal />} />
-          <Route path="/Owner/*" element={<Owner />} />
-          <Route
-            path="/platform-administration"
-            element={<PlatformAdministration />}
-          />
-        </Routes>
-      </main>
-    </div>
+    <AuthProvider>
+      <Routes>
+        <Route path="/platform-administration/*" element={<AdminLayout />} />
+        <Route path="/*" element={<UserLayout />} />
+      </Routes>
+    </AuthProvider>
   );
 }
