@@ -18,8 +18,8 @@ export default function UserLayout() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="Owner/*" element={<Owner />} />
           <Route path="center-portal/*" element={<CenterPortal />} />
+          <Route path="Owner/*" element={<Owner />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
