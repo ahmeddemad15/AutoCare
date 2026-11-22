@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import CenterNavbar from "../../components/center/CenterNavbar";
-import Sidebar from "../../components/center/Sidebar";
+import CenterLayout from "../../layouts/CenterLayout";
 import DashboardHome from "./DashboardHome";
 import BookingsPage from "./BookingsPage";
 import ServicesPage from "./ServicesPage";
 import SettingsPage from "./SettingsPage";
 import ProfilePage from "./ProfilePage";
 import useCenterData from "./useCenterData";
+ 
 import "./centertheme.css";
 
 const PAGE_TITLES = {
@@ -20,11 +19,9 @@ const PAGE_TITLES = {
   "/center-portal/settings": "Settings",
 };
 
-const CenterPortal = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [theme, setTheme] = useState("dark");
-  const location = useLocation();
 
+
+const CenterPortal = () => {
   const {
     centerInfo,
     bookings,
@@ -40,12 +37,7 @@ const CenterPortal = () => {
     updateCenterInfo,
   } = useCenterData();
 
-  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
-  const closeSidebar = () => setIsSidebarOpen(false);
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-
-  const title = PAGE_TITLES[location.pathname] || "Center Dashboard";
+  // Decide what to show inside the layout: loading, error, or the real pages
   let content;
   if (isLoading) {
     content = (
@@ -93,6 +85,7 @@ const CenterPortal = () => {
         />
         <Route path="services" element={<ServicesPage />} />
         <Route path="settings" element={<SettingsPage />} />
+
         <Route
           path="profile"
           element={
@@ -109,38 +102,9 @@ const CenterPortal = () => {
   }
 
   return (
-    <div
-      data-theme={theme}
-      className="center-theme min-h-screen bg-(--cp-bg) text-(--cp-text)"
-    >
-      <CenterNavbar
-        toggleSidebar={toggleSidebar}
-        title={title}
-        theme={theme}
-        toggleTheme={toggleTheme}
-        centerName={centerInfo?.name}
-      />
-
-      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-
-      <div
-        className={`transition-[margin] duration-300 ease-in-out ${
-          isSidebarOpen ? "lg:ms-64" : ""
-        }`}
-      >
-        <div className="p-4 sm:p-6 lg:p-8">
-          {actionError && (
-            <p
-              role="alert"
-              className="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm font-bold text-red-400"
-            >
-              {actionError}
-            </p>
-          )}
-          {content}
-        </div>
-      </div>
-    </div>
+    <CenterLayout centerName={centerInfo?.name} actionError={actionError}>
+      {content}
+    </CenterLayout>
   );
 };
 
