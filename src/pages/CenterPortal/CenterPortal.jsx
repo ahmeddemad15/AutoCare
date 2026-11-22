@@ -5,8 +5,9 @@ import CenterNavbar from "../../components/center/CenterNavbar";
 import Sidebar from "../../components/center/Sidebar";
 import DashboardHome from "./DashboardHome";
 import BookingsPage from "./BookingsPage";
+import ServicesPage from "./ServicesPage";
+import SettingsPage from "./SettingsPage";
 import ProfilePage from "./ProfilePage";
-import CenterPlaceholder from "./CenterPlaceholder";
 import useCenterData from "./useCenterData";
 import "./centertheme.css";
 
@@ -14,6 +15,7 @@ const PAGE_TITLES = {
   "/center-portal": "Center Dashboard",
   "/center-portal/bookings": "Bookings",
   "/center-portal/services": "Services",
+
   "/center-portal/profile": "My Profile",
   "/center-portal/settings": "Settings",
 };
@@ -89,10 +91,8 @@ const CenterPortal = () => {
             />
           }
         />
-        <Route
-          path="services"
-          element={<CenterPlaceholder title="Services" />}
-        />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="settings" element={<SettingsPage />} />
         <Route
           path="profile"
           element={
@@ -102,10 +102,7 @@ const CenterPortal = () => {
             />
           }
         />
-        <Route
-          path="settings"
-          element={<CenterPlaceholder title="Settings" />}
-        />
+
         <Route path="*" element={<Navigate to="/center-portal" replace />} />
       </Routes>
     );
