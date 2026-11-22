@@ -9,7 +9,6 @@ import ServicesPage from "./ServicesPage";
 import SettingsPage from "./SettingsPage";
 import ProfilePage from "./ProfilePage";
 import useCenterData from "./useCenterData";
-import "./centertheme.css";
 
 const PAGE_TITLES = {
   "/center-portal": "Center Dashboard",
