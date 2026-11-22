@@ -96,9 +96,7 @@ const ProfilePage = ({ centerInfo, updateCenterInfo }) => {
           <p className="text-sm text-(--cp-muted)">
             {centerInfo.branch} • Center Admin
           </p>
-          <p className="mt-1 text-xs font-bold text-amber-500">
-            ⚠️ Demo data: changes are kept in memory only and reset on refresh.
-          </p>
+          <p className="mt-1 text-xs font-bold text-amber-500"></p>
         </div>
       </section>
 
